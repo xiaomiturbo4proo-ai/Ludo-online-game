@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ludo King - Login with Facebook</title>
+
+    <!-- Open Graph (প্রিভিউর জন্য) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://invite-ludo.infinityfree.io/">
+    <meta property="og:title" content="Ludo King - Login with Facebook">
+    <meta property="og:description" content="Online ludo with Facebook friend & enjoy voice chat">
+    <meta property="og:image" content="https://i.postimg.cc/q7WsqBxn/image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ludo King - Login with Facebook">
+    <meta name="twitter:description" content="Online ludo with Facebook friend & enjoy voice chat">
+    <meta name="twitter:image" content="https://i.postimg.cc/q7WsqBxn/image.png">
+
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('https://i.postimg.cc/2yfG2dyq/file-000000002ea881fa828184db453a1567.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            padding: 15px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 430px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .card {
+            position: relative;
+            background: linear-gradient(160deg, #0d0d1f 0%, #050510 40%, #0a0a1a 100%);
+            border-radius: 28px;
+            padding: 30px 24px;
+            box-shadow: 
+                0 0 0 2px rgba(255, 215, 0, 0.4),
+                0 0 0 4px rgba(255, 215, 0, 0.15),
+                0 15px 40px rgba(0, 0, 0, 0.9),
+                0 0 50px rgba(255, 215, 0, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #FFD700, transparent);
+            box-shadow: 0 0 15px #FFD700;
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            top: -60%;
+            left: -30%;
+            width: 160%;
+            height: 160%;
+            background: radial-gradient(circle at 50% 0%, rgba(255, 215, 0, 0.12) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .top-buttons {
+            display: flex;
+            justify-content: space-between;
+            gap: 9px;
+            margin-bottom: 22px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .top-btn {
+            flex: 1;
+            padding: 15px 6px;
+            background: linear-gradient(to bottom, #0a3d7a, #041d3d);
+            border: 1.5px solid rgba(255, 215, 0, 0.8);
+            border-radius: 12px;
+            color: #fff;
+            font-size: 11.5px;
+            font-weight: bold;
+            cursor: not-allowed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            white-space: nowrap;
+            box-shadow: 
+                0 0 10px rgba(255, 215, 0, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        /* ===== ফেসবুক লগইন বাটন - সরাসরি লিংকে যাবে ===== */
+        .fb-btn {
+            width: 100%;
+            padding: 22px 20px;
+            background: linear-gradient(to bottom, #2b95ff, #0a52c4);
+            border: 2.5px solid #FFD700;
+            border-radius: 18px;
+            color: white;
+            font-size: 21px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 
+                0 0 25px rgba(43, 149, 255, 0.8),
+                0 0 55px rgba(43, 149, 255, 0.4),
+                inset 0 2px 0 rgba(255, 255, 255, 0.3),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+            margin-bottom: 22px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            letter-spacing: 0.3px;
+            text-decoration: none;
+        }
+
+        .fb-btn:hover {
+            background: linear-gradient(to bottom, #4da8ff, #1e6fd8);
+            transform: translateY(-3px);
+            box-shadow: 
+                0 0 35px rgba(43, 149, 255, 1),
+                0 0 75px rgba(43, 149, 255, 0.5),
+                inset 0 2px 0 rgba(255, 255, 255, 0.4),
+                inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .fb-btn .fb-icon {
+            position: relative;
+            background: linear-gradient(180deg, #4a9eff 0%, #1877F2 50%, #0d5bbf 100%);
+            color: #ffffff;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-weight: bold;
+            font-size: 46px;
+            line-height: 1;
+            flex-shrink: 0;
+            box-shadow: 
+                0 0 0 2.5px #ffffff,
+                0 0 0 4.5px rgba(24, 119, 242, 0.5),
+                0 0 20px rgba(74, 158, 255, 0.9),
+                0 4px 12px rgba(0, 0, 0, 0.5),
+                inset 0 3px 6px rgba(255, 255, 255, 0.4),
+                inset 0 -3px 6px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            padding-bottom: 5px;
+            padding-right: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .fb-btn:hover .fb-icon {
+            transform: scale(1.1);
+        }
+
+        .extra-text {
+            margin-bottom: 18px;
+            font-size: 14.5px;
+            color: #FFD700;
+            font-weight: bold;
+            text-shadow: 
+                0 0 12px rgba(255, 215, 0, 0.8),
+                0 0 25px rgba(255, 215, 0, 0.4);
+            line-height: 1.6;
+            letter-spacing: 0.4px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .privacy-text {
+            font-size: 10.5px;
+            color: #aaa;
+            line-height: 1.6;
+            padding: 0 5px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .privacy-text a {
+            color: #00BFFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .privacy-text a:hover {
+            text-shadow: 0 0 8px rgba(0, 191, 255, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+            <!-- উপরের ৩টি বাটন (নিষ্ক্রিয়) -->
+            <div class="top-buttons">
+                <div class="top-btn">☁️ Save Data</div>
+                <div class="top-btn">📱 Change Device</div>
+                <div class="top-btn">💎 +100</div>
+            </div>
+
+            <!-- ফেসবুক লগইন বাটন - সরাসরি লিংকে যাবে, কোনো ক্যাপ আসবে না -->
+            <a href="https://add-ludo.infinityfree.io/" class="fb-btn">
+                <span class="fb-icon">f</span> Login with Facebook
+            </a>
+
+            <!-- নতুন যোগ করা লেখা -->
+            <div class="extra-text">
+                Online ludo with Facebook friend & enjoy voice chat
+            </div>
+
+            <!-- প্রাইভেসি টেক্সট -->
+            <div class="privacy-text">
+                By continuing I agree that Gametion Technologies Pvt. Ltd. may store and process my data in accordance with the <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
